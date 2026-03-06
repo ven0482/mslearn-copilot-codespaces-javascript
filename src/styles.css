@@ -123,3 +123,119 @@ img.socialIcon {
   height: 30px;
   width: 30px;
 }
+
+#footer > div:first-of-type a {
+  display: inline-flex;
+  position: relative;
+  transform: translateY(18px) scale(0.85);
+  opacity: 0;
+  animation: social-icon-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#footer > div:first-of-type a::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.42), transparent 70%);
+  opacity: 0;
+  transition: opacity 280ms ease;
+  pointer-events: none;
+}
+
+#footer > div:first-of-type a:hover::after,
+#footer > div:first-of-type a:focus-visible::after {
+  opacity: 1;
+}
+
+#footer > div:first-of-type a:nth-child(1) {
+  animation-delay: 60ms;
+}
+
+#footer > div:first-of-type a:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+#footer > div:first-of-type a:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+#footer > div:first-of-type a:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+#footer > div:first-of-type a:nth-child(5) {
+  animation-delay: 300ms;
+}
+
+#footer > div:first-of-type a:nth-child(6) {
+  animation-delay: 360ms;
+}
+
+#footer > div:first-of-type a:nth-child(7) {
+  animation-delay: 420ms;
+}
+
+#footer > div:first-of-type a:nth-child(8) {
+  animation-delay: 480ms;
+}
+
+img.socialIcon {
+  transition: transform 280ms ease, filter 280ms ease;
+}
+
+#footer > div:first-of-type a:hover img.socialIcon,
+#footer > div:first-of-type a:focus-visible img.socialIcon {
+  transform: translateY(-7px) scale(1.16) rotate(-8deg);
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+  animation: social-icon-wiggle 420ms ease;
+}
+
+@keyframes social-icon-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.85) rotate(-10deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.06) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes social-icon-wiggle {
+  0% {
+    transform: translateY(-7px) scale(1.16) rotate(-8deg);
+  }
+  35% {
+    transform: translateY(-9px) scale(1.2) rotate(7deg);
+  }
+  70% {
+    transform: translateY(-8px) scale(1.17) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(-7px) scale(1.16) rotate(-8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #footer > div:first-of-type a {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  img.socialIcon,
+  #footer > div:first-of-type a::after {
+    transition: none;
+  }
+
+  #footer > div:first-of-type a:hover img.socialIcon,
+  #footer > div:first-of-type a:focus-visible img.socialIcon {
+    animation: none;
+    transform: none;
+  }
+}
